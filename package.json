@@ -4,10 +4,17 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "database": "node server/server.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "circular-json": "^0.5.9",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
     "vue": "^2.5.17"
   },
   "devDependencies": {
