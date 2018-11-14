@@ -24,6 +24,8 @@ Summary
 
 Opted for Node.js and Vue js front-end/back-end to run server as vue both are technologies i have worked with in the past.
 
+First i attempted to consume the API from the front-end using vue. However i was blocked due to "Access-Control-Allow-Origin" error. Attempts at adjusting the settings proved unsuccessful so i opted to make the request from the back end using express.
+
 After pulling the data, i noticed there was a circular reference error. There were a few libraries and methods but for fortunately
 Node has a util to inspect and replace those references with [circular] without having to install a library. 
 
