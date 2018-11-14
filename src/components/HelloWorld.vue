@@ -26,11 +26,14 @@
   mounted(){
 
     axios
-      .get('http://localhost:8083/winner')
+      .get('/winner')
       .then(res => {
-        let index  = res.data.indexOf('results');
-        let newArray = res.data.slice(index+8,-2);
-        newArray = JSON.parse(JSON.stringify(newArray));
+
+        // Cleaning the data and removing impurities
+
+        // let index  = res.data.indexOf('results');
+        // let newArray = res.data.slice(index+8,-2);
+        // newArray = JSON.parse(JSON.stringify(newArray));
         // newArray = newArray.replace(/'/g, '"')
         //           .replace(/(\w+):/g, '"$1":');
         //
@@ -57,8 +60,8 @@
         // console.log(orIndex)
         // newArray = newArray.slice(0,orIndex-1) + ' or' + newArray.slice(smilinIndex+4);
 
-        console.log("RESPONSE", newArray);
-        this.info = newArray
+        // console.log("RESPONSE", newArray);
+        this.info = res
       })
       .catch(error =>{
         console.log(error)

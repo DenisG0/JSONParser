@@ -1,17 +1,15 @@
 var express = require('express');
 var axios = require('axios');
 var winner = express.Router();
-var CircularJSON = require('circular-json');
 var util = require('util');
 
 /* GET users listing. */
 winner.get('/', function(req, res) {
-  // res.send('respond with a resource');
   axios.get('http://oscars.yipitdata.com/')
     .then(response => {
       // console.log(response);
       var wholeObject = util.inspect(response);
-      var dataObject = wholeObject
+      var dataObject = wholeObject;
 
       //Loop through data until at results object.
       // for(var i = 0;i<100;i++){
@@ -23,7 +21,6 @@ winner.get('/', function(req, res) {
       // }
       // console.log(wholeObject);
       // console.log("Data Object",dataObject);
-
       // console.log(CircularJSON.stringify(response));
       res.send(dataObject);
     })
