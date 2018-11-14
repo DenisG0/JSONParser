@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "database": "node server/server.js",
+    "database": "nodemon server/server.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "morgan": "^1.9.1",
+    "nodemon": "^1.18.6",
     "vue": "^2.5.17"
   },
   "devDependencies": {

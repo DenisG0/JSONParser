@@ -7,7 +7,6 @@
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>{{info}}</h3>
-
   </div>
 </template>
 
@@ -29,7 +28,40 @@
     axios
       .get('http://localhost:8083/winner')
       .then(res => {
-        console.log("RESPONSE",res);
+        let index  = res.data.indexOf('results');
+        let newArray = res.data.slice(index+8,-2);
+        newArray = JSON.parse(JSON.stringify(newArray));
+        // newArray = newArray.replace(/'/g, '"')
+        //           .replace(/(\w+):/g, '"$1":');
+        //
+        // for(var i =0;i<newArray.length;i++){
+        //   //remove back to back double quotes
+        //   if(newArray[i]==='"'&&newArray[i+1]==='"'){
+        //     newArray = newArray.slice(0,i)+newArray.slice(i+1,newArray.length);
+        //   }
+        //   //Turn all double interior quotes in http to single
+        //   if(newArray[i-1]==="p"&&newArray[i+1]===":"){
+        //     newArray = newArray.slice(0,i)+"'"+newArray.slice(i+1,newArray.length);
+        //   }
+        //   //Turn all double interior quotes to single
+        //   if(newArray.charCodeAt(i-1)>64&&newArray.charCodeAt(i-1)<123&&newArray.charCodeAt(i+1)>64&&newArray.charCodeAt(i+1)<123&&newArray[i]==='"'){
+        //     console.log(newArray[i]);
+        //     newArray = newArray.slice(0,i)+"'"+newArray.slice(i+1,newArray.length);
+        //   }
+        // }
+        // //Turn outlier to single quote "smilin"
+        // let smilinIndex = newArray.indexOf('"Smilin');
+        // newArray = newArray.slice(0,smilinIndex+7)+ "'" +newArray.slice(smilinIndex+8);
+        // //Turn outlier to no quote "or"
+        // let orIndex = newArray.indexOf('"or"');
+        // console.log(orIndex)
+        // newArray = newArray.slice(0,orIndex-1) + ' or' + newArray.slice(smilinIndex+4);
+
+        console.log("RESPONSE", newArray);
+        this.info = newArray
+      })
+      .catch(error =>{
+        console.log(error)
       })
       // .then(response => (this.info = response))
   }
